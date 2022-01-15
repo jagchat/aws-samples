@@ -54,6 +54,7 @@ sam deploy `
 #### How to test read operation (get-all-items) locally
 
 - in order to test "get-all-items" function locally, we can use the following command:
+
   `> sam local invoke DemoDynamoDbGetAllLambda --template-file template-code-only.yaml`
   or
 
@@ -72,7 +73,8 @@ sam local start-api `
 ```
 
 - the above kicks off a web server at port 3000 and we can test the functionality by pointing our browser to (fig: api-get-all-items.png)
-  `http://localhost:3000/items`
+
+`http://localhost:3000/items`
 
 #### Debugging using VSCode (applies to all operations)
 
@@ -115,7 +117,8 @@ sam local start-api `
 ```
 
 - the above kicks off a web server at port 3000 and we can test the functionality by pointing our browser to (fig: api-get-all-items.png)
-  `http://localhost:3000/items/Red/Taylor%20Swift`
+
+`http://localhost:3000/items/Red/Taylor%20Swift`
 
 #### How to test read operation (get-items-by-partition) locally
 
@@ -137,7 +140,8 @@ sam local start-api `
 ```
 
 - the above kicks off a web server at port 3000 and we can test the functionality by pointing our browser to (fig: api-get-all-items.png)
-  `http://localhost:3000/items/Red`
+
+`http://localhost:3000/items/Red`
 
 #### How to test POST operation (add-item) locally
 
@@ -247,14 +251,17 @@ or
 - using AWS Console with Lambda
 - Go to AWS Console | Lambda | DemoDynamoDbGetItemsByPartitionLambda | Test
 - Provide following as "Test event" parameters and hit "Test"
-  `"Red"`
-  (fig: console-lambda-get-items-by-partition.png)
+
+`"Red"`
+
+(fig: console-lambda-get-items-by-partition.png)
 
 #### Delete from AWS
 
 - use following command to delete it from AWS cloud
 
 - if deployed using template-db-only.yaml
-  `> sam delete --stack-name demo-dynamodb-crud-db-only`
+
+`> sam delete --stack-name demo-dynamodb-crud-db-only`
 
 - and similarly for other stacks based on the chosen deployment type earlier

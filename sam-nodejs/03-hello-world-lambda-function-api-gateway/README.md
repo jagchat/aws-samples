@@ -2,7 +2,7 @@
 
 A simple example on how to use AWS SAM CLI to build and test locally, an AWS Lambda function along with HTTP API support.
 
-####Heads-up
+#### Heads-up
 
 - Env: Win 10
 - Needs AWS CLI and AWS SAM CLI installed / configured
@@ -15,7 +15,7 @@ A simple example on how to use AWS SAM CLI to build and test locally, an AWS Lam
 - handcrafted "template.yaml"
 - created files manually without using "sam init" command (used "npm init" for package.json)
 
-####Build
+#### Build
 
 - use following command to build
 
@@ -23,7 +23,7 @@ A simple example on how to use AWS SAM CLI to build and test locally, an AWS Lam
 
 - Once built, it creates ".aws-sam" folder
 
-####Test just the Lambda function locally (without HTTP API)
+#### Test just the Lambda function locally (without HTTP API)
 
 - use following command to test it
 
@@ -36,7 +36,7 @@ A simple example on how to use AWS SAM CLI to build and test locally, an AWS Lam
 {"statusCode":200,"body":"Hello World!"}
 ```
 
-####Test GET operation on HTTP API backed with Lambda function
+#### Test GET operation on HTTP API backed with Lambda function
 
 - use following command to start web server
 
@@ -46,7 +46,7 @@ A simple example on how to use AWS SAM CLI to build and test locally, an AWS Lam
 - should see "Hello World!" as result
 - use Ctrl+C to cancel the server
 
-####Deploy to AWS cloud
+#### Deploy to AWS cloud
 
 - This uses CloudFormation, S3 and other service behind the scenes
 - create an S3 bucket (ex: jag-lambda-apps)
@@ -71,7 +71,7 @@ sam deploy `
 
 - open new tab and use above url to get the output "Hello World!" (03.png)
 
-####Delete from AWS
+#### Delete from AWS
 
 - use following command to delete it from AWS cloud
 

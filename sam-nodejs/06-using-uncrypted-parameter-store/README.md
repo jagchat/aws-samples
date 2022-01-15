@@ -13,7 +13,7 @@ An example on how to fetch config value from unencrypted parameter store or from
 
 NOTE: this uses concepts from previous examples
 
-####Heads-up
+#### Heads-up
 
 - Env: Win 10
 - Needs AWS CLI and AWS SAM CLI installed / configured
@@ -24,7 +24,7 @@ NOTE: this uses concepts from previous examples
 - Node version: 14.18.1
 - NPM version: 6.14.15
 
-####Commands
+#### Commands
 
 - use following command to build
 
@@ -40,7 +40,7 @@ or
 
 `> sam local start-api --port 3000`
 
-####Debugging using VSCode
+#### Debugging using VSCode
 
 We can still debug/troubleshoot using VSCode (as explained in previous examples)
 
@@ -50,7 +50,7 @@ We can still debug/troubleshoot using VSCode (as explained in previous examples)
 - for http api
   `> sam local start-api --port 3000 --debug-port 9999`
 
-####Deploy to AWS cloud
+#### Deploy to AWS cloud
 
 - This uses CloudFormation, S3 and other service behind the scenes
 - create an S3 bucket (ex: jag-lambda-apps)
@@ -68,7 +68,7 @@ sam deploy `
 
 - once deployed, you can check / test using AWS Console
 
-####Delete from AWS
+#### Delete from AWS
 
 - use following command to delete it from AWS cloud
 

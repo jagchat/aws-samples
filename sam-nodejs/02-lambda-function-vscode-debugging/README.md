@@ -2,7 +2,7 @@
 
 A simple example on how to use AWS SAM CLI to test and debug AWS Lambda function locally using VSCode.
 
-####Heads-up
+#### Heads-up
 
 - Env: Win 10
 - Needs AWS CLI and AWS SAM CLI installed / configured
@@ -15,7 +15,7 @@ A simple example on how to use AWS SAM CLI to test and debug AWS Lambda function
 - handcrafted "template.yaml"
 - created files manually without using "sam init" command (used "npm init" for package.json)
 
-####Debug Lambda locally
+#### Debug Lambda locally
 
 - use following command to start debugging service (at port 9999)
 
@@ -52,7 +52,7 @@ NOTE: if parent folder is opened (instead of "app"), modify attribute in launch.
 - Press "Continue(F5)" after debugging.
 - The result will be shown at the prompt (04.png)
 
-####Simplifying using npm
+#### Simplifying using npm
 
 - modify "package.json" as follows:
 
