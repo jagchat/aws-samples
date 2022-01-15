@@ -4,7 +4,7 @@ const AWS = require('aws-sdk')
 const docClient = new AWS.DynamoDB.DocumentClient()
 
 exports.handler = async function (event, context) {
-    console.log("DemoDynamoDbAddItemLambda: Started..\n");
+    console.log("DemoDynamoDbDeleteItemLambda: Started..\n");
 
     let response = {
         statusCode: 200,
@@ -15,10 +15,10 @@ exports.handler = async function (event, context) {
     };
 
     try {
-        // if (event.httpMethod !== 'POST') {
-        //     throw new Error(`add-item only accept POST method, you tried: ${event.httpMethod}`)
+        // if (event.httpMethod !== 'DELETE') {
+        //     throw new Error(`delete-item only accept DELETE method, you tried: ${event.httpMethod}`)
         // }        
-        let result = await addItem(event);
+        let result = await deleteItem(event);
         response.body = JSON.stringify(result);
     }
     catch (ex) {
@@ -26,23 +26,23 @@ exports.handler = async function (event, context) {
         response.body = JSON.stringify({ error: ex.toString() });
     }
 
-    console.log("DemoDynamoDbAddItemLambda: Completed..\n");
+    console.log("DemoDynamoDbDeleteItemLambda: Completed..\n");
     return response;
 };
 
-const addItem = async (event) => {
+const deleteItem = async (event) => {
     let response
     try {
-        console.log(`DemoDynamoDbAddItemLambda.addItem: fetching config..\n`);
+        console.log(`DemoDynamoDbDeleteItemLambda.deleteItem: fetching config..\n`);
         let config = JSON.parse(process.env.DemoDynamoDbParamStoreConfig);
-        console.log(`DemoDynamoDbAddItemLambda.addItem: fetching input params..\n`);
+        console.log(`DemoDynamoDbDeleteItemLambda.deleteItem: fetching input params..\n`);
         let item = getInputParams(event);
         let params = {
             TableName: config.tablename,
-            Item: item
+            Key: item
         }
-        console.log(`DemoDynamoDbAddItemLambda.addItem: saving data..\n`);
-        response = await docClient.put(params).promise()
+        console.log(`DemoDynamoDbDeleteItemLambda.deleteItem: deleting data..\n`);
+        response = await docClient.delete(params).promise()
     } catch (err) {
         throw err
     }
@@ -54,14 +54,14 @@ const getInputParams = (event) => {
     let body;
 
     if (event.requestContext != null) {
-        console.log(`DemoDynamoDbAddItemLambda.getInputParams: API Gateway request, extracting params...\n`);
+        console.log(`DemoDynamoDbDeleteItemLambda.getInputParams: API Gateway request, extracting params...\n`);
         body = JSON.parse(event.body);
     }
     else {
-        console.log(`DemoDynamoDbAddItemLambda.getInputParams: Lambda request..\n`);
+        console.log(`DemoDynamoDbDeleteItemLambda.getInputParams: Lambda request..\n`);
         body = event;
     }
 
-    console.log(`DemoDynamoDbAddItemLambda.getInputParams: body: ${JSON.stringify(body)}..\n`);
+    console.log(`DemoDynamoDbDeleteItemLambda.getInputParams: body: ${JSON.stringify(body)}..\n`);
     return body;
 }

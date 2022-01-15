@@ -18,7 +18,7 @@ exports.handler = async function (event, context) {
         // if (event.httpMethod !== 'GET') {
         //     throw new Error(`get-all-items only accept GET method, you tried: ${event.httpMethod}`)
         // }
-        let result = await getAllItems()
+        let result = await getAllItems();
         response.body = JSON.stringify(result);
     }
     catch (ex) {
@@ -33,12 +33,14 @@ exports.handler = async function (event, context) {
 const getAllItems = async () => {
     let response
     try {
-        var config = JSON.parse(process.env.DemoDynamoDbParamStoreConfig);
+        console.log(`DemoDynamoDbGetAllLambda.getAllItems: fetching config..\n`);
+        let config = JSON.parse(process.env.DemoDynamoDbParamStoreConfig);
 
-        var params = {
+        let params = {
             TableName: config.tablename
         }
 
+        console.log(`DemoDynamoDbGetAllLambda.getAllItems: fetching data..\n`);
         response = await docClient.scan(params).promise()
     } catch (err) {
         throw err

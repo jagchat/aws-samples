@@ -34,6 +34,49 @@ Resources:
             Path: /items
             Method: GET
 
+  DemoDynamoDbGetItemsByPartitionLambda:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: DemoDynamoDbGetItemsByPartitionLambda
+      Handler: get-items-by-partition.handler
+      Runtime: nodejs14.x
+      Timeout: 10
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref TableName
+      Environment:
+        Variables:
+          DemoDynamoDbParamStoreConfig: !Sub '{"tablename": "${TableName}"}'          
+      Events:
+        DemoDynamoDbGetItemsByPartitionApiEvent:
+          Type: Api
+          Properties:
+            RestApiId: !Ref DemoDynamoDbCrudApi
+            Path: /items/{album}
+            Method: GET
+
+  DemoDynamoDbGetItemByKeyLambda:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: DemoDynamoDbGetItemByKeyLambda
+      Handler: get-item-by-key.handler
+      Runtime: nodejs14.x
+      Timeout: 10
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref TableName
+      Environment:
+        Variables:
+          DemoDynamoDbParamStoreConfig: !Sub '{"tablename": "${TableName}"}'          
+      Events:
+        DemoDynamoDbGetGetItemByKeyApiEvent:
+          Type: Api
+          Properties:
+            RestApiId: !Ref DemoDynamoDbCrudApi
+            # in this case, primary key involves both partition key (album) and sort key (artist)
+            Path: /items/{album}/{artist}
+            Method: GET
+
   DemoDynamoDbAddItemLambda:
     Type: AWS::Serverless::Function
     Properties:
@@ -54,3 +97,24 @@ Resources:
             RestApiId: !Ref DemoDynamoDbCrudApi
             Path: /items
             Method: POST
+
+  DemoDynamoDbDeleteItemLambda:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: DemoDynamoDbDeleteItemLambda
+      Handler: delete-item.handler
+      Runtime: nodejs14.x
+      Timeout: 10
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref TableName
+      Environment:
+        Variables:
+          DemoDynamoDbParamStoreConfig: !Sub '{"tablename": "${TableName}"}'          
+      Events:
+        DemoDynamoDbDeleteItemApiEvent:
+          Type: Api
+          Properties:
+            RestApiId: !Ref DemoDynamoDbCrudApi
+            Path: /items
+            Method: DELETE
