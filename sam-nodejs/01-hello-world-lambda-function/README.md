@@ -2,7 +2,7 @@
 
 A simple example on how to use AWS SAM CLI to build and test an AWS Lambda function locally. Further, we are going to deploy/delete lambda function directly from AWS cloud. Following are the steps.
 
-####Heads-up
+#### Heads-up
 
 - Env: Win 10
 - Needs AWS CLI and AWS SAM CLI installed / configured
@@ -15,7 +15,7 @@ A simple example on how to use AWS SAM CLI to build and test an AWS Lambda funct
 - handcrafted "template.yaml"
 - created files manually without using "sam init" command (used "npm init" for package.json)
 
-####Build
+#### Build
 
 - use following command to build
 
@@ -23,7 +23,7 @@ A simple example on how to use AWS SAM CLI to build and test an AWS Lambda funct
 
 - Once built, it creates ".aws-sam" folder
 
-####Test it locally
+#### Test it locally
 
 - use following command to test it locally
 
@@ -42,7 +42,7 @@ REPORT RequestId: 03d39ff8-8731-4fb9-9329-39170940d9d0 Init Duration: 0.31 ms Du
 "Hello World!"
 ```
 
-####Deploy to AWS cloud
+#### Deploy to AWS cloud
 
 - This uses CloudFormation, S3 and other service behind the scenes
 - create an S3 bucket (ex: jag-lambda-apps)
@@ -60,7 +60,7 @@ sam deploy `
 
 - once deployed, you can check / test using AWS Console
 
-####Delete from AWS
+#### Delete from AWS
 
 - use following command to delete it from AWS cloud
 

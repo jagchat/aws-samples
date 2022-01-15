@@ -47,7 +47,9 @@ sam deploy `
 
 ```
 
-- once deployed, you can add sample data by going to AWS Console | DynamoDb | tables | select <table> | View Items | Create Item (fig: dynamodb-table-item-entry-in-console.png)
+- once deployed, you can add sample data by going to AWS Console | DynamoDb | tables | select <table> | View Items | Create Item
+
+![dynamodb-table-item-entry-in-console.png](./images/dynamodb-table-item-entry-in-console.png)
 
 - use following command to test lambda locally
 
@@ -56,6 +58,7 @@ sam deploy `
 - in order to test "get-all-items" function locally, we can use the following command:
 
   `> sam local invoke DemoDynamoDbGetAllLambda --template-file template-code-only.yaml`
+
   or
 
 ```
@@ -72,9 +75,11 @@ sam local start-api `
 --port 3000
 ```
 
-- the above kicks off a web server at port 3000 and we can test the functionality by pointing our browser to (fig: api-get-all-items.png)
+- the above kicks off a web server at port 3000 and we can test the functionality by pointing our browser to
 
 `http://localhost:3000/items`
+
+![api-get-all-items.png](./images/api-get-all-items.png)
 
 #### Debugging using VSCode (applies to all operations)
 
@@ -108,7 +113,7 @@ sam local invoke DemoDynamoDbGetItemByKeyLambda `
  --log-file log.txt
 ```
 
-- in order to test "get-all-items" http api locally (using browser)
+- in order to test "get-item-by-key" http api locally (using browser)
 
 ```
 sam local start-api `
@@ -116,7 +121,7 @@ sam local start-api `
 --port 3000
 ```
 
-- the above kicks off a web server at port 3000 and we can test the functionality by pointing our browser to (fig: api-get-all-items.png)
+- the above kicks off a web server at port 3000 and we can test the functionality by pointing our browser to
 
 `http://localhost:3000/items/Red/Taylor%20Swift`
 
@@ -131,7 +136,7 @@ sam local invoke DemoDynamoDbGetItemsByPartitionLambda `
  --log-file log.txt
 ```
 
-- in order to test "get-all-items" http api locally (using browser)
+- in order to test "get-items-by-partition" http api locally (using browser)
 
 ```
 sam local start-api `
@@ -139,7 +144,7 @@ sam local start-api `
 --port 3000
 ```
 
-- the above kicks off a web server at port 3000 and we can test the functionality by pointing our browser to (fig: api-get-all-items.png)
+- the above kicks off a web server at port 3000 and we can test the functionality by pointing our browser to
 
 `http://localhost:3000/items/Red`
 
@@ -162,7 +167,9 @@ sam local start-api `
 --port 3000
 ```
 
-- the above kicks off a web server at port 3000 and we can test the functionality using postman (fig: postman-add-item.png)
+- the above kicks off a web server at port 3000 and we can test the functionality using postman
+
+![postman-add-item.png](./images/postman-add-item.png)
 
 #### How to test DELETE operation (delete-item) locally
 
@@ -183,7 +190,9 @@ sam local start-api `
 --port 3000
 ```
 
-- the above kicks off a web server at port 3000 and we can test the functionality using postman (fig: postman-delete-item.png)
+- the above kicks off a web server at port 3000 and we can test the functionality using postman
+
+![postman-delete-item.png](./images/postman-delete-item.png)
 
 #### How to deploy all code (Lambda + Http API) to AWS cloud
 
@@ -218,7 +227,9 @@ sam deploy `
 - using AWS Console with API Gateway
 - Go to AWS Console | API Gateway | APIs | demo-dynamodb-crud-code-only | Resources | {album} {artist} {GET} | Test
 - Provide "Album" value as "Red" and "Artist" value as "Taylor Swift"
-- Hit "Test" (fig: console-api-get-item-by-key.png)
+- Hit "Test"
+
+![console-api-get-item-by-key.png](./images/console-api-get-item-by-key.png)
 
 or
 
@@ -233,18 +244,22 @@ or
   }
 ```
 
-(fig: console-lambda-get-item-by-key.png)
+![console-lambda-get-item-by-key.png](./images/console-lambda-get-item-by-key.png)
 
 or
 
-- you can also use external link for testing (fig: console-api-stages-get-item-by-key.png)
+- you can also use external link for testing
+
+![console-api-stages-get-item-by-key.png](./images/console-api-stages-get-item-by-key.png)
 
 #### How to test read operation (get-items-by-partition) in AWS
 
 - using AWS Console with API Gateway
 - Go to AWS Console | API Gateway | APIs | demo-dynamodb-crud-code-only | Resources | {album} | {GET} | Test
 - Provide "Album" value as "Red"
-- Hit "Test" (fig: console-api-get-items-by-partition.png)
+- Hit "Test"
+
+![console-api-get-items-by-partition.png](./images/console-api-get-items-by-partition.png)
 
 or
 
@@ -254,7 +269,7 @@ or
 
 `"Red"`
 
-(fig: console-lambda-get-items-by-partition.png)
+![console-lambda-get-items-by-partition.png](./images/console-lambda-get-items-by-partition.png)
 
 #### Delete from AWS
 
