@@ -51,11 +51,12 @@ const deleteItem = async (event) => {
 
 const getInputParams = (event) => {
 
-    let body;
+    let body = {};
 
     if (event.requestContext != null) {
         console.log(`DemoDynamoDbDeleteItemLambda.getInputParams: API Gateway request, extracting params...\n`);
-        body = JSON.parse(event.body);
+        body.Album = event.pathParameters.album;
+        body.Artist = event.pathParameters.artist;
     }
     else {
         console.log(`DemoDynamoDbDeleteItemLambda.getInputParams: Lambda request..\n`);

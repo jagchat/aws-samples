@@ -69,7 +69,7 @@ Resources:
         Variables:
           DemoDynamoDbParamStoreConfig: !Sub '{"tablename": "${TableName}"}'          
       Events:
-        DemoDynamoDbGetGetItemByKeyApiEvent:
+        DemoDynamoDbGetItemByKeyApiEvent:
           Type: Api
           Properties:
             RestApiId: !Ref DemoDynamoDbCrudApi
@@ -116,5 +116,5 @@ Resources:
           Type: Api
           Properties:
             RestApiId: !Ref DemoDynamoDbCrudApi
-            Path: /items
+            Path: /items/{album}/{artist}
             Method: DELETE

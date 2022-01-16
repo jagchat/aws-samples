@@ -104,7 +104,7 @@ sam local start-api `
 
 #### How to test read operation (get-item-by-key) locally
 
-- in order to test "get-items-by-key" function locally, we can use the following command:
+- in order to test "get-item-by-key" function locally, we can use the following command:
 
 ```
 sam local invoke DemoDynamoDbGetItemByKeyLambda `
@@ -159,7 +159,7 @@ sam local invoke DemoDynamoDbAddItemLambda `
  --log-file log.txt
 ```
 
-- in order to test "get-all-items" http api locally (using browser)
+- in order to test "add-item" http api locally
 
 ```
 sam local start-api `
@@ -173,7 +173,7 @@ sam local start-api `
 
 #### How to test DELETE operation (delete-item) locally
 
-- in order to test "add-item" function locally, we can use the following command:
+- in order to test "delete-item" function locally, we can use the following command:
 
 ```
 sam local invoke DemoDynamoDbDeleteItemLambda `
@@ -182,7 +182,7 @@ sam local invoke DemoDynamoDbDeleteItemLambda `
  --log-file log.txt
 ```
 
-- in order to test "get-all-items" http api locally (using browser)
+- in order to test "delete-item" http api locally
 
 ```
 sam local start-api `
