@@ -25,7 +25,7 @@ NOTE: this uses concepts from previous examples
 
 - use following command to build all parts of application (include DynamoDb specifications)
 
-`> sam build --template-file template-code-all.yaml`
+`> sam build --template-file template-all.yaml`
 
 - use following command to build only code part (Lambda, API Gateway)
 
@@ -199,6 +199,8 @@ sam local start-api `
 - This uses CloudFormation, S3 and other services behind the scenes
 - create an S3 bucket (ex: jag-lambda-apps)
 - use following command to deploy only code and without DynamoDb (using powershell)
+
+** Ensure ".aws-sam" (build folder) is deleted before deploying, as it might throw "unzipped size must be smaller than ..." error **
 
 ```
 sam deploy `
